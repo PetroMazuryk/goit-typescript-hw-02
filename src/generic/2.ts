@@ -8,16 +8,33 @@ type AllType = {
   name: string;
   position: number;
   color: string;
-  weight: number
-}
+  weight: number;
+};
 
-function compare (top, bottom): AllType {
+function compare(
+  top: Pick<AllType, "name" | "color">,
+  bottom: Pick<AllType, "position" | "weight">
+): AllType {
   return {
     name: top.name,
     color: top.color,
     position: bottom.position,
     weight: bottom.weight,
-  }
+  };
 }
 
-export {};
+const carOne = {
+  name: "Toyota Corolla",
+  position: 20,
+  color: "black",
+  weight: 1785,
+};
+
+const carTwo = {
+  name: "Toyota Verso",
+  position: 40,
+  color: "grey",
+  weight: 1800,
+};
+
+compare(carOne, carTwo);
